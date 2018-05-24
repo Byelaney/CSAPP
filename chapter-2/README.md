@@ -533,3 +533,22 @@ It is important to note that the representation scheme must be known before a bi
 The most commonly-used character encoding schemes are: 7-bit ASCII (ISO/IEC 646) and 8-bit Latin-x (ISO/IEC 8859-x) for western european characters, and Unicode (ISO/IEC 10646) for internationalization (i18n).
 
 A 7-bit encoding scheme (such as ASCII) can represent 128 characters and symbols. An 8-bit character encoding scheme (such as Latin-x) can represent 256 characters and symbols; whereas a 16-bit encoding scheme (such as Unicode UCS-2) can represents 65,536 characters and symbols.
+
+## 7-bit ASCII Code (aka US-ASCII, ISO/IEC 646, ITU-T T.50)
+
+ASCII (American Standard Code for Information Interchange) is one of the earlier character coding schemes.
+ASCII is originally a 7-bit code. It has been extended to 8-bit to better utilize the 8-bit computer memory organization. (The 8th-bit was originally used for parity check in the early computers.)
+Code numbers 32D (20H) to 126D (7EH) are printable (displayable) characters as tabulated:
+
+![p15](./img/p15.png)
+
+Code number 32D (20H) is the blank or space character.
+> * '0' to '9': 30H-39H (0011 0001B to 0011 1001B) or (0011 xxxxB where xxxx is the equivalent integer value)
+> * 'A' to 'Z': 41H-5AH (0101 0001B to 0101 1010B) or (010x xxxxB). 'A' to 'Z' are continuous without gap.
+> * 'a' to 'z': 61H-7AH (0110 0001B to 0111 1010B) or (011x xxxxB). 'A' to 'Z' are also continuous without gap. However, there is a gap between uppercase and lowercase letters. To convert between upper and lowercase, flip the value of bit-5.
+> * Code numbers 0D (00H) to 31D (1FH), and 127D (7FH) are special control characters, which are non-printable (non-displayable), as tabulated below. Many of these characters were used in the early days for transmission control (e.g., STX, ETX) and printer control (e.g., Form-Feed), which are now obsolete. The remaining meaningful codes today are:
+> * 09H for Tab ('\t').
+> * 0AH for Line-Feed or newline (LF or '\n') and 0DH for Carriage-Return (CR or 'r'), which are used as line delimiter (aka line separator, end-of-line) for text files. There is unfortunately no standard for line delimiter: Unixes and Mac use 0AH (LF or "\n"), Windows use 0D0AH (CR+LF or "\r\n"). Programming languages such as C/C++/Java (which was created on Unix) use 0AH (LF or "\n").
+> * In programming languages such as C/C++/Java, line-feed (0AH) is denoted as '\n', carriage-return (0DH) as '\r', tab (09H) as '\t'.
+
+![p16](./img/p16.png)
